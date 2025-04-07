@@ -1,3 +1,4 @@
+let seconds = 30; 
 function updateTimer() {
     const timerElement = document.getElementById('timer');
     timerElement.textContent = seconds; 
