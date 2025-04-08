@@ -11,3 +11,5 @@ function updateTimer() {
 }
 
 const timerInterval = setInterval(updateTimer, 1000);
+
+
