@@ -1,7 +1,21 @@
+/*const cookie = document.getElementById("cookie");
+const counterDisplay = document.getElementById("clicker__counter");
+const speedDisplay = document.getElementById("speed");
+
+let prevTimestamp = Date.now();
+
+cookie.onclick = () => {
+   cookie.width = ++counterDisplay.textContent % 2 ? 250 : 200;
+   const elapsedTime = Date.now() - prevTimestamp;
+   speedDisplay.textContent = (1000 / elapsedTime).toFixed(2);
+   prevTimestamp = Date.now();
+}*/
+// Инициализация переменных
 // Инициализация переменных
 let clickCount = 0; // Счетчик кликов
 let lastClickTime = null; // Время последнего клика
 let clickSpeed = 0; // Скорость клика
+let clicksInLastSecond = 0; // Количество кликов за последнюю секунду
 
 // Получаем элементы из DOM
 const cookie = document.getElementById('cookie'); // Элемент печеньки
@@ -11,10 +25,10 @@ const clickSpeedDisplay = document.getElementById('clicker__speed'); // Элем
 // Функция для обработки клика по печеньке
 cookie.addEventListener('click', () => {
     clickCount++; // Увеличиваем счетчик кликов
+    clicksInLastSecond++; // Увеличиваем количество кликов за последнюю секунду
 
     // Проверяем, достиг ли счетчик 40
     if (clickCount >= 41) {
-        
         clickCount = 0; // Сбрасываем счетчик
     }
 
@@ -25,17 +39,14 @@ cookie.addEventListener('click', () => {
     cookie.style.width = `${newSize}px`; // Устанавливаем новую ширину
     cookie.style.height = `${newSize}px`; // Устанавливаем новую высоту
 
-    // Рассчитываем скорость клика (время между кликами)
-    const currentTime = new Date(); // Получаем текущее время
-    
-    if (lastClickTime) { 
-        const timeDiff = currentTime - lastClickTime; // Разница во времени в миллисекундах
-        clickSpeed = (timeDiff / 100).toFixed(2); // Скорость клика в сотых долях секунды
-        clickSpeedDisplay.textContent = clickSpeed; // Обновляем отображение скорости клика с единицами измерения
-    }
-
-    lastClickTime = currentTime; // Обновляем время последнего клика
 });
+
+// Функция для обновления скорости клика каждую секунду
+setInterval(() => {
+    clickSpeedDisplay.textContent = clicksInLastSecond; // Обновляем отображение скорости клика с единицами измерения
+    clicksInLastSecond = 0; // Сбрасываем количество кликов за последнюю секунду
+}, 1000);
+
 
 
 

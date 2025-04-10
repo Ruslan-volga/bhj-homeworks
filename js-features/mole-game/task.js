@@ -54,11 +54,11 @@ function resetGame() {
     deadCount = 0;
     lostCount = 0;
     
+    for (let i = 1; i <= 9; i++) {
     document.getElementById('dead').textContent = deadCount;
     document.getElementById('lost').textContent = lostCount;
 
    // Удаляем класс у всех лунок
-   for (let i = 1; i <= 9; i++) {
        getHole(i).classList.remove('hole_has-mole');
    }
 }
