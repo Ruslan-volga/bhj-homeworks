@@ -1,17 +1,3 @@
-/*const cookie = document.getElementById("cookie");
-const counterDisplay = document.getElementById("clicker__counter");
-const speedDisplay = document.getElementById("speed");
-
-let prevTimestamp = Date.now();
-
-cookie.onclick = () => {
-   cookie.width = ++counterDisplay.textContent % 2 ? 250 : 200;
-   const elapsedTime = Date.now() - prevTimestamp;
-   speedDisplay.textContent = (1000 / elapsedTime).toFixed(2);
-   prevTimestamp = Date.now();
-}*/
-// Инициализация переменных
-// Инициализация переменных
 let clickCount = 0; // Счетчик кликов
 let lastClickTime = null; // Время последнего клика
 let clickSpeed = 0; // Скорость клика
