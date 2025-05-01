@@ -89,3 +89,10 @@ body {
 .product-shadow {
   position: absolute;
 }
+.product-shadow {
+  position: absolute;
+  width: 100px; /* или другой размер */
+  height: 100px; /* или другой размер */
+  pointer-events: none; /* чтобы клик не мешал анимации */
+  transition: transform 0.5s ease; /* Плавный переход */
+}
