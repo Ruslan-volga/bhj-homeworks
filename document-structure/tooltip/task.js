@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
     const tooltips = document.querySelectorAll('.has-tooltip');
     const tooltipElement = document.querySelector('.tooltip');
@@ -17,35 +18,29 @@ document.addEventListener('DOMContentLoaded', function() {
             tooltipElement.textContent = tooltipText;
 
             // Устанавливаем позицию подсказки
-            const position = this.getAttribute('data-position') || 'bottom';
-            setTooltipPosition(this, position);
+            setTooltipPosition(this);
 
             // Показываем подсказку
             tooltipElement.classList.toggle('tooltip_active');
         });
     });
 
-    function setTooltipPosition(element, position) {
+    // Обработчик клика по документу для скрытия подсказки
+    document.addEventListener('click', function(event) {
+        const isClickInsideTooltip = tooltipElement.contains(event.target);
+        const isClickInsideTooltipLink = Array.from(tooltips).some(tooltip => tooltip.contains(event.target));
+
+        if (!isClickInsideTooltip && !isClickInsideTooltipLink) {
+            tooltipElement.classList.remove('tooltip_active'); // Скрываем подсказку
+        }
+    });
+
+    function setTooltipPosition(element) {
         const rect = element.getBoundingClientRect();
         const tooltipRect = tooltipElement.getBoundingClientRect();
 
-        switch (position) {
-            case 'top':
-                tooltipElement.style.left = `${rect.left + (rect.width - tooltipRect.width) / 2}px`;
-                tooltipElement.style.top = `${rect.top - tooltipRect.height - 5}px`;
-                break;
-            case 'left':
-                tooltipElement.style.left = `${rect.left - tooltipRect.width - 5}px`;
-                tooltipElement.style.top = `${rect.top + (rect.height - tooltipRect.height) / 2}px`;
-                break;
-            case 'right':
-                tooltipElement.style.left = `${rect.right + 5}px`;
-                tooltipElement.style.top = `${rect.top + (rect.height - tooltipRect.height) / 2}px`;
-                break;
-            case 'bottom':
-                tooltipElement.style.left = `${rect.left + (rect.width - tooltipRect.width) / 2}px`;
-                tooltipElement.style.top = `${rect.bottom + 5}px`;
-                break;
-        }
+        // Устанавливаем позицию подсказки под элементом
+        tooltipElement.style.left = `${rect.left + (rect.width - tooltipRect.width) / 2}px`;
+        tooltipElement.style.top = `${rect.bottom + 5}px`;
     }
 });
