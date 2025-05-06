@@ -9,3 +9,45 @@ body {
 .poll__title {
   margin-bottom: 20px;
 }
+/* Стили для модального окна */
+#modal {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed; /* Фиксированное позиционирование */
+  z-index: 1000; /* На переднем плане */
+  left: 0;
+  top: 0;
+  width: 100%; /* Полная ширина */
+  height: 100%; /* Полная высота */
+  overflow: auto; /* Прокрутка при необходимости */
+  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+}
+
+/* Стили для содержимого модального окна */
+.modal-content {
+  background-color: #fefefe; /* Белый фон */
+  margin: 15% auto; /* Центрирование по вертикали и горизонтали */
+  padding: 20px; /* Отступы внутри окна */
+  border: 1px solid #888; /* Рамка вокруг окна */
+  width: 300px; /* Ширина модального окна */
+  border-radius: 5px; /* Закругленные углы */
+}
+
+/* Кнопка закрытия модального окна */
+.close {
+  color: #aaa; /* Цвет кнопки закрытия */
+  float: right; /* Выравнивание вправо */
+  font-size: 28px; /* Размер шрифта кнопки закрытия */
+}
+
+.close:hover,
+.close:focus {
+  color: black; /* Цвет при наведении или фокусе */
+  text-decoration: none; /* Убираем подчеркивание текста */
+  cursor: pointer; /* Курсор в виде указателя при наведении */
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
