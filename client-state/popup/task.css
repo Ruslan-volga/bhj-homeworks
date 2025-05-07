@@ -1,0 +1,30 @@
+.modal {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+  justify-content: center; /* Центрируем содержимое по горизонтали */
+  align-items: center; /* Центрируем содержимое по вертикали */
+}
+
+.modal_active {
+  display: flex; /* Показываем модальное окно как flex-контейнер */
+}
+
+.modal__content {
+  background-color: white; /* Белый фон для содержимого модального окна */
+  padding: 20px;
+  border-radius: 5px; /* Закругленные углы */
+  position: relative; /* Для позиционирования кнопки закрытия */
+}
+
+.modal__close_times {
+  position: absolute;
+  right: 5px;
+  top: -2px;
+  font-size: 25px;
+  cursor: pointer; /* Указатель на элемент закрытия */
+}

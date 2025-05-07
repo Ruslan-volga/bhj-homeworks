@@ -1,0 +1,22 @@
+textarea {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    padding: 10px 20px;
+    margin: 0 0 20px 0;
+    font-family: Golos, Arial, sans-serif;
+    border: 1px solid #e2e2e2;
+    box-sizing: border-box;
+  }
+  button {
+    padding: 10px 15px;
+    background-color: #007bff; /* Цвет фона кнопки */
+    color: white; /* Цвет текста кнопки */
+    border: none; /* Убираем рамку */
+    border-radius: 5px; /* Закругляем углы */
+    cursor: pointer; /* Указываем курсор при наведении */
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Цвет фона кнопки при наведении */
+  }
