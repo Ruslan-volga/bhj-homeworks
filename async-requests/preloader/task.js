@@ -1,5 +1,3 @@
-// task.js
-
 // Функция для загрузки данных о курсе валют
 async function fetchCurrencyRates() {
     const loader = document.getElementById('loader');

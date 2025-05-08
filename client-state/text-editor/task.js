@@ -5,9 +5,7 @@ const clearButton = document.getElementById('clearButton');
 // Восстанавливаем текст из локального хранилища при загрузке страницы
 window.onload = function() {
     const savedText = localStorage.getItem('editorContent');
-    if (savedText) {
-        editor.value = savedText; // Восстанавливаем текст в textarea
-    }
+    editor.value = savedText; // Восстанавливаем текст в textarea 
 };
 
 // Сохраняем текст в локальное хранилище при изменении текста
